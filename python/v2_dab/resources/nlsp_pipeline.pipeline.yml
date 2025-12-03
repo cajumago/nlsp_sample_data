@@ -1,0 +1,20 @@
+## Source: https://docs.databricks.com/aws/en/dev-tools/bundles/examples
+
+
+# A pipeline that runs on serverless compute
+resources:
+  pipelines:
+    my_pipeline:
+      name: my_pipeline
+      target: ${bundle.environment}
+      serverless: true
+      environment:
+        dependencies:
+          - 'dist/*.whl'
+      catalog: users
+      libraries:
+        - notebook:
+            path: ../src/my_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src

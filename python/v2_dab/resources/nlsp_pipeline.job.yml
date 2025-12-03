@@ -1,0 +1,17 @@
+## Source: https://docs.databricks.com/aws/en/dev-tools/bundles/examples
+
+
+# A serverless job (no cluster definition)
+resources:
+  jobs:
+    serverless_job_no_cluster:
+      name: serverless_job_no_cluster
+
+      email_notifications:
+        on_failure:
+          - someone@example.com
+
+      tasks:
+        - task_key: notebook_task
+          notebook_task:
+            notebook_path: ../src/notebook.ipynb

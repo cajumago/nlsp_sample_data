@@ -1,0 +1,17 @@
+## Source: https://docs.databricks.com/aws/en/dev-tools/bundles/examples
+# serverless_job: https://github.com/databricks/bundle-examples/blob/main/knowledge_base/serverless_job/databricks.yml
+
+bundle:
+  name: serverless_job
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+workspace:
+  host: https://myworkspace.databricks.com
+
+targets:
+  dev:
+    default: true
+    mode: development
